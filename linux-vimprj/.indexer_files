@@ -1,0 +1,4 @@
+[linux-kernel]
+option:ctags_params = "--exclude=Documentation"
+
+$VIMPRJ_PROJECT_ROOT
