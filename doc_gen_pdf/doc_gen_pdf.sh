@@ -25,8 +25,12 @@ mkdir -p "${DST}"
 pushd "${SRC}"
 
 find -name "*.txt" -exec bash -c " \
-  echo -n 'Converting {}... ' && \
-  mkdir -p \"${DST}/\$(dirname {})\" && \
-  enscript ${ENSCRIPT_FLAGS} -p - {} | ps2pdf - '${DST}/{}.pdf'" \;
+  if [ ! -f '${DST}/{}.pdf' ]; then \
+    echo -n 'Converting {}... ' && \
+    mkdir -p \"${DST}/\$(dirname {})\" && \
+    enscript ${ENSCRIPT_FLAGS} -p - {} | ps2pdf - '${DST}/{}.pdf'; \
+  else \
+    echo 'Skipping {}'; \
+  fi" \;
 
 popd
