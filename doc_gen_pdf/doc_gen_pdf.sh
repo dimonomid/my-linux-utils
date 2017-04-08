@@ -24,7 +24,7 @@ mkdir -p "${DST}"
 
 pushd "${SRC}"
 
-find -name "*.txt" -exec bash -c " \
+find -name "*.txt" -o -name "*.rst" -exec bash -c " \
   if [ ! -f '${DST}/{}.pdf' ]; then \
     echo -n 'Converting {}... ' && \
     mkdir -p \"${DST}/\$(dirname {})\" && \
