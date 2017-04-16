@@ -4,6 +4,7 @@ let s:sPath  = simplify(s:sVimprjPath.'/..')
 
 set ts=8
 set sw=8
+set noexpandtab
 
 set colorcolumn=81
 
